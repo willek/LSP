@@ -4,10 +4,6 @@ require "Item.php";
 require "Order.php";
 require "__Input.php";
 
-/**
- * =========================== Polimorphy (__Printable)
- * Fungsi utama aplikasi
- */
 class Store
 {
     protected $order;

@@ -1,17 +1,8 @@
 <?php
 
-/**
- * ======================================== Struct (sama kayak ngakses properti)
- * Berfungsi untuk menyimpan detail item barang
- */
-class Item
-{
-    public $kode;
-    public $name;
-    public $qty;
-    public $price;
+class Item {
 
-    private $filename = 'list.json';
+    private $file = 'Barang.json';
 
     public $list;
 
