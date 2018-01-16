@@ -56,6 +56,11 @@ Class Barang {
     }
   }
 
+  public function kosongkanDataBarang() {
+    $this->daftar_barang = [];
+    $this->editData();
+  }
+
   public function sortir(&$array, $kolom, $arah = SORT_ASC) {
     $sortir_kolom = [];
     foreach ($array as $key => $baris) {

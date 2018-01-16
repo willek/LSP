@@ -45,6 +45,7 @@ Class Kasir {
         $this->hapusBarang();
         break;
       case '4':
+        $this->kosongkanBarang();
         break;
       case '5':
         break;
@@ -113,6 +114,24 @@ Class Kasir {
     $kode_barang = trim(fgets(STDIN));
     $this->barang->hapusData($kode_barang);
     $this->tampilkanMenu();
+  }
+
+  private function kosongkanBarang() {
+    echo "========= Kosongkan Barang ==========\n";
+    echo "Apa anda yakin ingin mengosongkan daftar barang? (Y/N)";
+    $pilihan = trim(fgets(STDIN));
+    if ($pilihan == 'Y' || $pilihan == 'y') {
+      $this->barang->kosongkanDataBarang();
+      echo "Berhasil menghapus semua data!\n";
+      $this->tampilkanMenu();
+    } else if ($pilihan == 'N' || $pilihan == 'n') {
+      echo "Kembali ke menu";
+      $this->tampilkanMenu();
+    } else {
+      echo "Pilihan salah! Kembali ke menu\n";
+      $this->tampilkanMenu();
+    }
+
   }
 
 }
