@@ -1,0 +1,32 @@
+[
+    {
+        "kode": "A101",
+        "nama": "Aqua",
+        "jumlah": 50,
+        "harga": "2500"
+    },
+    {
+        "kode": "A102",
+        "nama": "Permen",
+        "jumlah": 40,
+        "harga": "1000"
+    },
+    {
+        "kode": "A103",
+        "nama": "Kerupuk",
+        "jumlah": 30,
+        "harga": "500"
+    },
+    {
+        "kode": "A104",
+        "nama": "Pasta Gigi",
+        "jumlah": 5,
+        "harga": "3000"
+    },
+    {
+        "kode": "A105",
+        "nama": "Gosok",
+        "jumlah": 21,
+        "harga": "2000"
+    }
+]
