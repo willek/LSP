@@ -1,15 +1,17 @@
 <?php
 
 require 'Barang.php';
-require 'Pesanan.php';
-require 'Validasi.php';
+// require 'Pesanan.php';
+// require 'Validasi.php';
 
 Class Kasir {
 
-  protected $pesanan;
+  // protected $pesanan;
+  protected $barang;
 
   public function __construct() {
-    $this->pesanan = new Pesanan;
+    // $this->pesanan = new Pesanan;
+    $this->barang = new Barang;
     $this->tampilkanMenu();
   }
 
@@ -23,38 +25,52 @@ Class Kasir {
   }
 
   public function pilihMenu() {
-    $choose = trim(fgets(STDIN));
+    echo "Masukkan pilihan anda: ";
+    $pilihan = trim(fgets(STDIN));
 
     echo "\n";
-    switch ($choose){
+    switch ($pilihan){
       case '1':
-        $this->addItem();
+        $this->tambahBarang();
         break;
       case '2':
-        $this->catalog();
-        $this->shopping();
+
         break;
       case '3' :
-        $this->catalog();
-        $this->mainMenu();
+        $this->stokBarang();
         break;
       default:
         echo "Pilihan tidak ditemukan!\n";
-        $this->mainMenu();
+        $this->pilihMenu();
         break;
     }
   }
 
-  public function tambahBarang() {
+  private function tambahBarang() {
+    echo "Kode Barang: ";
+    $kode_barang = trim(fgets(STDIN));
+
+    if (condition) {
+      # code...
+    }
 
   }
 
-  public function penjualan() {
+  private function penjualan() {
 
   }
 
-  public function stokBarang() {
+  private function stokBarang() {
+    $daftar_barang = $this->barang->daftar_barang;
+    $this->barang->sortir($daftar_barang, 'kode_barang');
 
+    echo "\n";
+    echo "============ Daftar Barang ============\n";
+    echo "Kode\tNama\tJumlah\tHarga\n";
+    foreach ($daftar_barang as $key => $barang) {
+      echo $barang['kode_barang']."\t".$barang['nama_barang']."\t".$barang['jumlah_barang']."\t".$barang['harga_barang']."\n";
+    }
+    echo "=======================================\n";
   }
 
 

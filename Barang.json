@@ -1,0 +1,38 @@
+[
+  {
+    "kode_barang": "A2",
+    "nama_barang": "Test",
+    "jumlah_barang": 50,
+    "harga_barang": "2500"
+  },
+  {
+    "kode_barang": "A101",
+    "nama_barang": "Aqua",
+    "jumlah_barang": 50,
+    "harga_barang": "2500"
+  },
+  {
+    "kode_barang": "A102",
+    "nama_barang": "Permen",
+    "jumlah_barang": 40,
+    "harga_barang": "1000"
+  },
+  {
+    "kode_barang": "A103",
+    "nama_barang": "Kerupuk",
+    "jumlah_barang": 30,
+    "harga_barang": "500"
+  },
+  {
+    "kode_barang": "A104",
+    "nama_barang": "Baju",
+    "jumlah_barang": 5,
+    "harga_barang": "3000"
+  },
+  {
+    "kode_barang": "A105",
+    "nama_barang": "Gosok",
+    "jumlah_barang": 21,
+    "harga_barang": "2000"
+  }
+]
