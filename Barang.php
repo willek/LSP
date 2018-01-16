@@ -24,4 +24,8 @@ Class Barang {
     }
     array_multisort($sortir_kolom, $arah, $array);
   }
+
+  public function cari($kode_barang) {
+    return in_array($kode_barang, array_column($this->daftar_barang, 'kode_barang'));
+  }
 }

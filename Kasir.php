@@ -16,11 +16,13 @@ Class Kasir {
   }
 
   public function tampilkanMenu() {
-    echo "\n================ Kasir ================\n";
-    echo "1. Tambah Barang\n";
-    echo "2. Penjualan\n";
-    echo "3. Stok Barang\n";
-    echo "=======================================\n";
+    echo "\n";
+    echo "=============== Kasir ===============\n";
+    echo "Pilih Menu: \n";
+    echo "  1. Tambah Barang\n";
+    echo "  2. Penjualan\n";
+    echo "  3. Stok Barang\n";
+    echo "=====================================\n";
     $this->pilihMenu();
   }
 
@@ -38,6 +40,7 @@ Class Kasir {
         break;
       case '3' :
         $this->stokBarang();
+        $this->tampilkanMenu();
         break;
       default:
         echo "Pilihan tidak ditemukan!\n";
@@ -47,11 +50,14 @@ Class Kasir {
   }
 
   private function tambahBarang() {
+    echo "=========== Tambah Barang ===========\n";
     echo "Kode Barang: ";
     $kode_barang = trim(fgets(STDIN));
 
-    if (condition) {
-      # code...
+    if ($this->barang->cari($kode_barang)) {
+
+    } else {
+
     }
 
   }
@@ -64,13 +70,13 @@ Class Kasir {
     $daftar_barang = $this->barang->daftar_barang;
     $this->barang->sortir($daftar_barang, 'kode_barang');
 
-    echo "\n";
-    echo "============ Daftar Barang ============\n";
-    echo "Kode\tNama\tJumlah\tHarga\n";
-    foreach ($daftar_barang as $key => $barang) {
-      echo $barang['kode_barang']."\t".$barang['nama_barang']."\t".$barang['jumlah_barang']."\t".$barang['harga_barang']."\n";
+    echo "=========== Daftar Barang ===========\n";
+    echo "Kode\tNama\t\tJumlah\tHarga\n";
+    echo "-------------------------------------\n";
+    foreach ($daftar_barang as $barang) {
+      echo $barang['kode_barang']."\t".$barang['nama_barang']."\t\t".$barang['jumlah_barang']."\t".$barang['harga_barang']."\n";
     }
-    echo "=======================================\n";
+    echo "=====================================\n";
   }
 
 
