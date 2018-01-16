@@ -1,1 +1,26 @@
-[]
+[
+    {
+        "kode_barang": "A1",
+        "nama_barang": "Buku",
+        "jumlah_barang": "10",
+        "harga_barang": "1000"
+    },
+    {
+        "kode_barang": "A1111",
+        "nama_barang": "Buku",
+        "jumlah_barang": "10",
+        "harga_barang": "1000"
+    },
+    {
+        "kode_barang": "A221",
+        "nama_barang": "Buku",
+        "jumlah_barang": "10",
+        "harga_barang": "1000"
+    },
+    {
+        "kode_barang": "A3",
+        "nama_barang": "Buku",
+        "jumlah_barang": "10",
+        "harga_barang": "1000"
+    }
+]

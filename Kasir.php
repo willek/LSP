@@ -1,5 +1,7 @@
 <?php
 
+// require = packages/namespace
+// digunakan untuk membaca file / package 
 require 'Barang.php';
 // require 'Pesanan.php';
 require 'Input.php';
@@ -8,14 +10,17 @@ require '__Main.php';
 Class Kasir implements __Main {
 
   // protected $pesanan;
-  protected $barang;
+  protected $barang; // variabel diawali dengan $
 
   public function __construct() {
     // $this->pesanan = new Pesanan;
+
+    // $this->barang = Object
     $this->barang = new Barang;
     $this->tampilkanMenu();
   }
 
+  // Fungsi
   public function tampilkanMenu() {
     echo "\n";
     echo "=============== Kasir ===============\n";
@@ -34,6 +39,11 @@ Class Kasir implements __Main {
     $pilihan = trim(fgets(STDIN));
 
     echo "\n";
+
+    /**
+     * Stuktur Kontrol.
+     * digunakan untuk meng-kontrol suatu program tergantung data yang diberikan (switch-case / if-else).
+     **/
     switch ($pilihan){
       case '1':
         $this->daftarBarang();

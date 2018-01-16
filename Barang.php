@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Struct adalah sebuah object dengan semua membernya bersifat public.
+ **/
+
 Class Barang {
   private $file = 'Barang.json';
   public $daftar_barang;
@@ -16,6 +20,7 @@ Class Barang {
   }
 
   private function ambilData() {
+    // read file (file_get_contents)
     $data = file_get_contents($this->file);
     $this->daftar_barang = json_decode($data, true);
   }
@@ -26,7 +31,10 @@ Class Barang {
       $this->daftar_barang[$key]['jumlah_barang'] += $jumlah_barang;
       $this->editData();
     } else {
+
+      // exception handling
       try {
+        // Array 1 dimensi
         $barang_baru = [
           'kode_barang' => $kode_barang,
           'nama_barang' => $nama_barang,
@@ -61,6 +69,11 @@ Class Barang {
     $this->editData();
   }
 
+  /**
+   *Pointer = &$array
+   */
+
+  // Sorting
   public function sortir(&$array, $kolom, $arah = SORT_ASC) {
     $sortir_kolom = [];
     foreach ($array as $key => $baris) {

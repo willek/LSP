@@ -2,6 +2,8 @@
 
 Class Input {
 
+  // exception handling (throw)
+
   public static function angka($masukan) {
     if (is_numeric($masukan)) {
       return $masukan;
