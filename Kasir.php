@@ -3,8 +3,9 @@
 require 'Barang.php';
 // require 'Pesanan.php';
 require 'Input.php';
+require '__Main.php';
 
-Class Kasir {
+Class Kasir implements __Main {
 
   // protected $pesanan;
   protected $barang;
@@ -70,7 +71,6 @@ Class Kasir {
     } else {
       echo "\tData Masih Kosong\n";
     }
-
     echo "=====================================\n";
   }
 
@@ -131,7 +131,6 @@ Class Kasir {
       echo "Pilihan salah! Kembali ke menu\n";
       $this->tampilkanMenu();
     }
-
   }
 
 }
