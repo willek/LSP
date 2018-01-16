@@ -23,7 +23,26 @@ Class Kasir {
   }
 
   public function pilihMenu() {
-    
+    $choose = trim(fgets(STDIN));
+
+    echo "\n";
+    switch ($choose){
+      case '1':
+        $this->addItem();
+        break;
+      case '2':
+        $this->catalog();
+        $this->shopping();
+        break;
+      case '3' :
+        $this->catalog();
+        $this->mainMenu();
+        break;
+      default:
+        echo "Pilihan tidak ditemukan!\n";
+        $this->mainMenu();
+        break;
+    }
   }
 
   public function tambahBarang() {
