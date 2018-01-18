@@ -30,6 +30,7 @@ Class Kasir implements __Main {
     echo "  3. Hapus Barang\n";
     echo "  4. Kosongkan Daftar Barang\n";
     echo "  5. Penjualan\n";
+    echo "  6. Keluar\n";
     echo "=====================================\n";
     $this->pilihMenu();
   }
@@ -62,6 +63,9 @@ Class Kasir implements __Main {
       case '5':
         $this->daftarBarang();
         $this->penjualanBarang();
+        break;
+      case '6':
+        $this->keluar();
         break;
       default:
         echo "Pilihan tidak ditemukan!\n";
@@ -171,6 +175,20 @@ Class Kasir implements __Main {
       }
     } else {
       echo "Barang dengan kode $kode_barang tidak ditemukan.\n";
+      $this->tampilkanMenu();
+    }
+  }
+
+  private function keluar() {
+    echo "Apakah anda yakin ingin keluar? (Y/N)";
+    $pilihan = trim(fgets(STDIN));
+    if ($pilihan == 'Y' || $pilihan == 'y') {
+      die();
+    } else if ($pilihan == 'N' || $pilihan == 'n') {
+      echo "Kembali ke menu...\n";
+      $this->tampilkanMenu();
+    } else {
+      echo "Pilihan salah!\n";
       $this->tampilkanMenu();
     }
   }

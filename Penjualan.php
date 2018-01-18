@@ -12,6 +12,15 @@ Class Penjualan extends Barang {
     $this->barang = new Barang;
   }
 
+  public function __call($name, $arguments) {
+    switch ($name) {
+      case 'kosongkanKeranjang':
+        $this->transaksi = [];
+        $this->bayar = 0;
+        break;
+    }
+  }
+
   public function cekKetersediaan($kode_barang, $total_pesanan) {
     $key = array_search($kode_barang, array_column($this->barang->daftar_barang, 'kode_barang'));
     if ($total_pesanan <= $this->barang->daftar_barang[$key]['jumlah_barang'] && $total_pesanan > 0) {
@@ -67,11 +76,6 @@ Class Penjualan extends Barang {
     echo "-------------------------------------\n";
     echo "\t\tTotal bayar: ".$this->bayar."\n";
     echo "=====================================\n";
-  }
-
-  public function kosongkanKeranjang() {
-    $this->transaksi = [];
-    $this->bayar = 0;
   }
 
 }
