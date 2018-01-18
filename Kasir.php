@@ -1,22 +1,22 @@
 <?php
 
 // require = packages/namespace
-// digunakan untuk membaca file / package 
+// digunakan untuk membaca file / package
 require 'Barang.php';
-// require 'Pesanan.php';
+require 'Penjualan.php';
 require 'Input.php';
 require '__Main.php';
 
 Class Kasir implements __Main {
 
-  // protected $pesanan;
-  protected $barang; // variabel diawali dengan $
+  // variabel diawali dengan $
+  protected $barang;
+  protected $penjualan;
 
   public function __construct() {
-    // $this->pesanan = new Pesanan;
-
-    // $this->barang = Object
+    // Object ($this->barang, $this->pesanan)
     $this->barang = new Barang;
+    $this->penjualan = new Penjualan;
     $this->tampilkanMenu();
   }
 
@@ -53,12 +53,15 @@ Class Kasir implements __Main {
         $this->tambahBarang();
         break;
       case '3' :
+        $this->daftarBarang();
         $this->hapusBarang();
         break;
       case '4':
         $this->kosongkanBarang();
         break;
       case '5':
+        $this->daftarBarang();
+        $this->penjualanBarang();
         break;
       default:
         echo "Pilihan tidak ditemukan!\n";
@@ -133,12 +136,34 @@ Class Kasir implements __Main {
     if ($pilihan == 'Y' || $pilihan == 'y') {
       $this->barang->kosongkanDataBarang();
       echo "Berhasil menghapus semua data!\n";
-      $this->tampilkanMenu();
     } else if ($pilihan == 'N' || $pilihan == 'n') {
       echo "Kembali ke menu";
-      $this->tampilkanMenu();
     } else {
       echo "Pilihan salah! Kembali ke menu\n";
+    }
+    $this->tampilkanMenu();
+  }
+
+  private function penjualanBarang() {
+    echo "============= Penjualan =============\n";
+    echo "Kode Barang: ";
+    $kode_barang = trim(fgets(STDIN));
+    if ($this->barang->cari($kode_barang)) {
+      echo "Jumlah Barang: ";
+      $total_pesanan = Input::angka(trim(fgets(STDIN)));
+      if ($this->penjualan->cekKetersediaan($kode_barang, $total_pesanan)) {
+        $this->penjualan->masukkanKeKeranjang();
+      } else {
+        $this->tampilkanMenu();
+      }
+      // if ($this->penjualan->tersedia($kode_barang)) {
+      //   # code...
+      // } else {
+      //
+      // }
+
+    } else {
+      echo "Barang dengan kode $kode_barang tidak ditemukan.\n";
       $this->tampilkanMenu();
     }
   }

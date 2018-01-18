@@ -20,7 +20,7 @@ Class Barang {
   }
 
   private function ambilData() {
-    // read file (file_get_contents)
+    // read file & get the data (file_get_contents)
     $data = file_get_contents($this->file);
     $this->daftar_barang = json_decode($data, true);
   }
