@@ -152,16 +152,23 @@ Class Kasir implements __Main {
       echo "Jumlah Barang: ";
       $total_pesanan = Input::angka(trim(fgets(STDIN)));
       if ($this->penjualan->cekKetersediaan($kode_barang, $total_pesanan)) {
-        $this->penjualan->masukkanKeKeranjang();
+        $this->penjualan->masukkanKeKeranjang($kode_barang, $total_pesanan);
+        echo "Ingin memesan lagi? (Y/N)";
+        $pilihan = trim(fgets(STDIN));
+        if ($pilihan == 'Y' || $pilihan == 'y') {
+          $this->penjualanBarang();
+        } elseif ($pilihan == 'N' || $pilihan == 'n') {
+          $this->penjualan->ubahDataBarang();
+          $this->penjualan->cetakFakturPenjualan();
+          $this->penjualan->kosongkanKeranjang();
+          $this->tampilkanMenu();
+        } else {
+          echo "Pilihan salah\n";
+          $this->tampilkanMenu();
+        }
       } else {
         $this->tampilkanMenu();
       }
-      // if ($this->penjualan->tersedia($kode_barang)) {
-      //   # code...
-      // } else {
-      //
-      // }
-
     } else {
       echo "Barang dengan kode $kode_barang tidak ditemukan.\n";
       $this->tampilkanMenu();

@@ -2,13 +2,13 @@
     {
         "kode_barang": "A1",
         "nama_barang": "Buku",
-        "jumlah_barang": "5",
+        "jumlah_barang": 0,
         "harga_barang": "1000"
     },
     {
         "kode_barang": "A2",
         "nama_barang": "Pensil",
-        "jumlah_barang": "10",
+        "jumlah_barang": 5,
         "harga_barang": "500"
     },
     {
