@@ -18,7 +18,7 @@ Class Penjualan extends Barang {
       return true;
     } else {
       $nama_barang = $this->barang->daftar_barang[$key]['nama_barang'];
-      echo "Penjualan dibatalkan, karena jumlah pesanan $nama_barang terlalu banyak / salah";
+      echo "Penjualan dibatalkan, karena jumlah pesanan $nama_barang terlalu banyak / salah / stok telah habis.";
       return false;
     }
   }
