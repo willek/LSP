@@ -58,7 +58,11 @@ Class Kasir implements __Main {
         break;
       case '3':
         $this->daftarBarang();
-        $this->penjualanBarang();
+        if (!$this->barang->apakahDataKosong()) {
+          $this->penjualanBarang();
+        } else if ($this->barang->apakahDataKosong()) {
+          $this->tampilkanMenu();
+        }
         break;
       // case '4' :
       //   $this->daftarBarang();

@@ -16,6 +16,15 @@ Class Barang {
     $this->ambilData();
   }
 
+  public function apakahDataKosong() {
+    $this->ambilData();
+    if (empty($this->daftar_barang)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   // method untuk memasukkan 1 data ke file .json
   private function masukkan($array) {
     array_push($this->daftar_barang, $array);
