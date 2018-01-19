@@ -11,7 +11,7 @@ Class Barang {
   private $file = 'Barang.json';
   public $daftar_barang;
 
-  // method yang dipanggil ketika object barang dijalanjan
+  // method yang dipanggil ketika object barang dijalankan
   public function __construct() {
     $this->ambilData();
   }
