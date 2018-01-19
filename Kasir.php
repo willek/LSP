@@ -27,10 +27,10 @@ Class Kasir implements __Main {
     echo "Pilih Menu: \n";
     echo "  1. Daftar Barang\n";
     echo "  2. Tambah Barang\n";
-    echo "  3. Hapus Barang\n";
-    echo "  4. Kosongkan Daftar Barang\n";
-    echo "  5. Penjualan\n";
-    echo "  6. Keluar\n";
+    echo "  3. Penjualan\n";
+    // echo "  4. Hapus Barang\n";
+    // echo "  5. Kosongkan Daftar Barang\n";
+    // echo "  6. Keluar\n";
     echo "=====================================\n";
     $this->pilihMenu();
   }
@@ -53,20 +53,20 @@ Class Kasir implements __Main {
       case '2':
         $this->tambahBarang();
         break;
-      case '3' :
-        $this->daftarBarang();
-        $this->hapusBarang();
-        break;
-      case '4':
-        $this->kosongkanBarang();
-        break;
-      case '5':
+      case '3':
         $this->daftarBarang();
         $this->penjualanBarang();
         break;
-      case '6':
-        $this->keluar();
-        break;
+      // case '4' :
+      //   $this->daftarBarang();
+      //   $this->hapusBarang();
+      //   break;
+      // case '5':
+      //   $this->kosongkanBarang();
+      //   break;
+      // case '6':
+      //   $this->keluar();
+      //   break;
       default:
         echo "Pilihan tidak ditemukan!\n";
         $this->pilihMenu();
