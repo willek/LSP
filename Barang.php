@@ -26,10 +26,11 @@ Class Barang {
   }
 
   // mengambil / membaca semua data dari file .json
-  private function ambilData() {
+  public function ambilData() {
     // read file & get the data (file_get_contents)
     $data = file_get_contents($this->file);
     $this->daftar_barang = json_decode($data, true);
+    $this->daftar_barang = array_values($this->daftar_barang);
   }
 
   // menambahkan data barang

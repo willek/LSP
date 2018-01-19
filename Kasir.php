@@ -23,6 +23,7 @@ Class Kasir implements __Main {
 
   // Fungsi / Method
   public function tampilkanMenu() {
+    $this->barang->ambilData();
     echo "\n";
     echo "=============== Kasir ===============\n";
     echo "Pilih Menu: \n";
@@ -38,7 +39,7 @@ Class Kasir implements __Main {
 
   // Method untuk memilih menu
   public function pilihMenu() {
-    echo "Masukkan pilihan anda (1 - 5): ";
+    echo "Masukkan pilihan anda (1 - 3): ";
     $pilihan = trim(fgets(STDIN));
 
     echo "\n";
