@@ -2,6 +2,7 @@
 
 require '__Keranjang.php';
 
+// inheritance antara penjualan dan barang
 Class Penjualan extends Barang {
 
   public $transaksi = [];
@@ -12,6 +13,7 @@ Class Penjualan extends Barang {
     $this->barang = new Barang;
   }
 
+  // overloading
   public function __call($name, $arguments) {
     switch ($name) {
       case 'kosongkanKeranjang':
@@ -21,6 +23,7 @@ Class Penjualan extends Barang {
     }
   }
 
+  // digunakan untuk mengecek ketersediaan barang ketika melakukan transaksi / penjualan
   public function cekKetersediaan($kode_barang, $total_pesanan) {
     $key = array_search($kode_barang, array_column($this->barang->daftar_barang, 'kode_barang'));
     if ($total_pesanan <= $this->barang->daftar_barang[$key]['jumlah_barang'] && $total_pesanan > 0) {
@@ -32,6 +35,7 @@ Class Penjualan extends Barang {
     }
   }
 
+  // digunakan untuk memasukkan data ke property transaksi yang nantinya akan diproses untuk transaksi
   public function masukkanKeKeranjang($kode_barang, $total_pesanan) {
     try {
       $key = array_search($kode_barang, array_column($this->barang->daftar_barang, 'kode_barang'));
@@ -51,6 +55,7 @@ Class Penjualan extends Barang {
     }
   }
 
+  // fungsi yang digunakan untuk mengubah data barang (mengurangi jumlah stok barang) setelah melakukan transaksi / penjualan
   public function ubahDataBarang() {
     try {
       foreach ($this->barang->daftar_barang as $key => $barang) {
@@ -64,9 +69,9 @@ Class Penjualan extends Barang {
     } catch (Exception $e) {
       die($e->getMessage());
     }
-
   }
 
+  // fungsi untuk mencetak barang yang dijual dan menampilkan total harganya
   public function cetakFakturPenjualan() {
     echo "========== Faktur Penjualan =========\n";
     echo "Kode\tNama\t\tJumlah\tTotal\n";

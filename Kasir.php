@@ -9,18 +9,19 @@ require '__Main.php';
 
 Class Kasir implements __Main {
 
-  // variabel diawali dengan $
+  // property yang dimiliki oleh kasir
   protected $barang;
   protected $penjualan;
 
   public function __construct() {
-    // Object ($this->barang, $this->pesanan)
+    // membuat object ($this->barang, $this->pesanan)
     $this->barang = new Barang;
     $this->penjualan = new Penjualan;
+    // menggunakan $this untuk memanggil method tampilkanMenu()
     $this->tampilkanMenu();
   }
 
-  // Fungsi
+  // Fungsi / Method
   public function tampilkanMenu() {
     echo "\n";
     echo "=============== Kasir ===============\n";
@@ -35,6 +36,7 @@ Class Kasir implements __Main {
     $this->pilihMenu();
   }
 
+  // Method untuk memilih menu
   public function pilihMenu() {
     echo "Masukkan pilihan anda (1 - 5): ";
     $pilihan = trim(fgets(STDIN));
@@ -67,6 +69,8 @@ Class Kasir implements __Main {
       // case '6':
       //   $this->keluar();
       //   break;
+
+      // jika pengguna memilih pilihan yang tidak ada.
       default:
         echo "Pilihan tidak ditemukan!\n";
         $this->pilihMenu();
@@ -74,33 +78,41 @@ Class Kasir implements __Main {
     }
   }
 
+  // method untuk menampilkan daftar barang
   private function daftarBarang() {
+    // mengambil data daftar barang dan mensortirnya
     $daftar_barang = $this->barang->daftar_barang;
     $this->barang->sortir($daftar_barang, 'kode_barang');
 
     echo "=========== Daftar Barang ===========\n";
     echo "Kode\tNama\t\tJumlah\tHarga\n";
     echo "-------------------------------------\n";
+    // jika daftar barang lebih dari 0 maka akan dilakukan perulangan untuk menampilkan daftar barang
     if (count($daftar_barang) > 0) {
       foreach ($daftar_barang as $barang) {
         echo $barang['kode_barang']."\t".$barang['nama_barang']."\t\t".$barang['jumlah_barang']."\t".$barang['harga_barang']."\n";
       }
+
+    // jika daftar barang  kosong
     } else {
       echo "\tData Masih Kosong\n";
     }
     echo "=====================================\n";
   }
 
+  // method untuk menambah daftar barang
   private function tambahBarang() {
     echo "=========== Tambah Barang ===========\n";
     echo "Kode Barang: ";
     $kode_barang = trim(fgets(STDIN));
 
+    // mengecek barang dengan kode barang dan jika ditemukan, maka hanya akan menambah stok / jumlah barang
     if ($this->barang->cari($kode_barang)) {
       echo "Jumlah Barang: ";
       $jumlah_barang = Input::angka(trim(fgets(STDIN)));
       $harga_barang = '';
       $nama_barang = '';
+    // jika kode barang tidak ada / tidak ditemukan, maka akan menambah barang baru
     } else {
       echo "Nama Barang: ";
       $nama_barang = Input::huruf(trim(fgets(STDIN)));
@@ -110,8 +122,10 @@ Class Kasir implements __Main {
       $jumlah_barang = Input::huruf(trim(fgets(STDIN)));
     }
 
+    // lalu menambah barang melalui object barang yang terbuat dari class barang
     $this->barang->tambahData($kode_barang, $nama_barang, $jumlah_barang, $harga_barang);
 
+    // menampilkan pilihan jika ingin menambah barang lagi
     echo "Ingin menambah barang lagi? (Y/N)";
     $pilihan = trim(fgets(STDIN));
     if ($pilihan == 'Y' || $pilihan == 'y') {
@@ -125,6 +139,7 @@ Class Kasir implements __Main {
 
   }
 
+  // method untuk menghapus barang berdasarkan kode barang
   private function hapusBarang() {
     echo "=========== Hapus Barang ============\n";
     echo "Kode Barang: ";
@@ -133,6 +148,7 @@ Class Kasir implements __Main {
     $this->tampilkanMenu();
   }
 
+  // method untuk meng-kosongkan semua data barang
   private function kosongkanBarang() {
     echo "========= Kosongkan Barang ==========\n";
     echo "Apa anda yakin ingin mengosongkan daftar barang? (Y/N)";
@@ -148,10 +164,12 @@ Class Kasir implements __Main {
     $this->tampilkanMenu();
   }
 
+  // method untuk melakukan transaksi / penjualan barang
   private function penjualanBarang() {
     echo "============= Penjualan =============\n";
     echo "Kode Barang: ";
     $kode_barang = trim(fgets(STDIN));
+    // jika kode barang ditemukan, maka akan ditampilkan berapa barang yang ingin dipesan
     if ($this->barang->cari($kode_barang)) {
       echo "Jumlah Barang: ";
       $total_pesanan = Input::angka(trim(fgets(STDIN)));
@@ -173,12 +191,14 @@ Class Kasir implements __Main {
       } else {
         $this->tampilkanMenu();
       }
+    // jika barang tidak ditemukan
     } else {
       echo "Barang dengan kode $kode_barang tidak ditemukan.\n";
       $this->tampilkanMenu();
     }
   }
 
+  // method untuk keluar program
   private function keluar() {
     echo "Apakah anda yakin ingin keluar? (Y/N)";
     $pilihan = trim(fgets(STDIN));

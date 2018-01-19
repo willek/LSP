@@ -10,5 +10,11 @@
         "nama_barang": "a",
         "jumlah_barang": "1",
         "harga_barang": "2"
+    },
+    {
+        "kode_barang": "A",
+        "nama_barang": "32",
+        "jumlah_barang": "d",
+        "harga_barang": "a"
     }
 ]
