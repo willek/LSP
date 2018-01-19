@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "kode_barang": "A2",
+        "nama_barang": "2",
+        "jumlah_barang": "2",
+        "harga_barang": "2"
+    },
+    {
+        "kode_barang": "A1",
+        "nama_barang": "a",
+        "jumlah_barang": "1",
+        "harga_barang": "2"
+    }
+]

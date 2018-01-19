@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Struct adalah sebuah object dengan semua membernya bersifat public.
+ * Struct adalah sebuah object dengan membernya bersifat public.
  **/
 
 Class Barang {
@@ -14,6 +14,7 @@ Class Barang {
 
   private function masukkan($array) {
     array_push($this->daftar_barang, $array);
+    $this->daftar_barang = array_values($this->daftar_barang);
     $data_barang = json_encode($this->daftar_barang, JSON_PRETTY_PRINT);
     file_put_contents($this->file, $data_barang);
     $this->ambilData();
@@ -49,6 +50,7 @@ Class Barang {
   }
 
   public function editData() {
+    $this->daftar_barang = array_values($this->daftar_barang);
     $data_barang = json_encode($this->daftar_barang, JSON_PRETTY_PRINT);
     file_put_contents($this->file, $data_barang);
   }
