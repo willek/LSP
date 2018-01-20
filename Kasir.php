@@ -9,15 +9,18 @@ require '__Main.php';
 
 Class Kasir implements __Main {
 
-  // property yang dimiliki oleh kasir
+  // property yang dimiliki oleh kasir.
   protected $barang;
   protected $penjualan;
 
+  // fungsi yang dijalankan ketika object kasir terbuat.
   public function __construct() {
     // membuat object ($this->barang, $this->pesanan)
     $this->barang = new Barang;
     $this->penjualan = new Penjualan;
     // menggunakan $this untuk memanggil method tampilkanMenu()
+    // agar menampilak menu secara otomatis ketika object Kasir
+    // dibuat.
     $this->tampilkanMenu();
   }
 

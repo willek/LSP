@@ -25,6 +25,7 @@ Class Penjualan extends Barang {
 
   // digunakan untuk mengecek ketersediaan barang ketika melakukan transaksi / penjualan
   public function cekKetersediaan($kode_barang, $total_pesanan) {
+    $this->barang->ambilData();
     $key = array_search($kode_barang, array_column($this->barang->daftar_barang, 'kode_barang'));
     if ($total_pesanan <= $this->barang->daftar_barang[$key]['jumlah_barang'] && $total_pesanan > 0) {
       return true;

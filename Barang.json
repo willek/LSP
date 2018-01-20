@@ -1,3 +1,20 @@
 [
-  
+    {
+        "kode_barang": "A1",
+        "nama_barang": "Buku",
+        "jumlah_barang": 1,
+        "harga_barang": "10000"
+    },
+    {
+        "kode_barang": "A2",
+        "nama_barang": "Pensil",
+        "jumlah_barang": "10",
+        "harga_barang": "5000"
+    },
+    {
+        "kode_barang": "A4",
+        "nama_barang": "HP",
+        "jumlah_barang": 0,
+        "harga_barang": "5000"
+    }
 ]
