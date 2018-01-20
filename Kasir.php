@@ -24,7 +24,7 @@ Class Kasir implements __Main {
     $this->tampilkanMenu();
   }
 
-  // Fungsi / Method
+  // Fungsi / Method untuk menampilkan menu
   public function tampilkanMenu() {
     $this->barang->ambilData();
     echo "\n";
@@ -42,7 +42,7 @@ Class Kasir implements __Main {
 
   // Method untuk memilih menu
   public function pilihMenu() {
-    echo "Masukkan pilihan anda (1 - 5): ";
+    echo "Masukkan pilihan anda (1 - 3): ";
     $pilihan = trim(fgets(STDIN));
 
     echo "\n";
@@ -61,8 +61,10 @@ Class Kasir implements __Main {
         break;
       case '3':
         $this->daftarBarang();
+        // cek apakah data barang tidak kosong, maka akan dilanjutkan ke penjualan
         if (!$this->barang->apakahDataKosong()) {
           $this->penjualanBarang();
+        // jika data barang kosong, maka akan kembali ke menu
         } else if ($this->barang->apakahDataKosong()) {
           $this->tampilkanMenu();
         }
