@@ -39,7 +39,7 @@ Class Kasir implements __Main {
 
   // Method untuk memilih menu
   public function pilihMenu() {
-    echo "Masukkan pilihan anda (1 - 3): ";
+    echo "Masukkan pilihan anda (1 - 5): ";
     $pilihan = trim(fgets(STDIN));
 
     echo "\n";
@@ -122,9 +122,9 @@ Class Kasir implements __Main {
       echo "Nama Barang: ";
       $nama_barang = Input::huruf(trim(fgets(STDIN)));
       echo "Harga Barang: ";
-      $harga_barang = Input::huruf(trim(fgets(STDIN)));
+      $harga_barang = Input::angka(trim(fgets(STDIN)));
       echo "Jumlah Barang: ";
-      $jumlah_barang = Input::huruf(trim(fgets(STDIN)));
+      $jumlah_barang = Input::angka(trim(fgets(STDIN)));
     }
 
     // lalu menambah barang melalui object barang yang terbuat dari class barang

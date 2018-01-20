@@ -16,13 +16,13 @@ Class Barang {
     $this->ambilData();
   }
 
+  // digunakan untuk mengecek apakah data barang kosong.
   public function apakahDataKosong() {
     $this->ambilData();
     if (empty($this->daftar_barang)) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   // method untuk memasukkan 1 data ke file .json
@@ -71,6 +71,7 @@ Class Barang {
     $this->daftar_barang = array_values($this->daftar_barang);
     $data_barang = json_encode($this->daftar_barang, JSON_PRETTY_PRINT);
     file_put_contents($this->file, $data_barang);
+    $this->ambilData();
   }
 
   // fungsi yang digunakan untuk menghapus barang berdasarkan kode barang sebagai parameternya
@@ -83,6 +84,7 @@ Class Barang {
     } else {
       echo "Kode barang $kode_barang tidak ditemukan\n";
     }
+    $this->ambilData();
   }
 
   // fungsi yang digunakan untuk menghapus semua data dari daftar barang

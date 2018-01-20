@@ -2,23 +2,23 @@
 
 Class Input {
 
-  // exeption handling
+  // error handling
 
   // fungsi yang hanya memperbolehkan angka sebagai inputan
   public static function angka($masukan) {
-    if (is_numeric($masukan)) {
+    if (preg_match('/^[0-9]{1,}/', $masukan)) {
       return $masukan;
     } else {
-      throw new Exception("Hanya angka yang diperbolehkan");
+      die("Hanya angka yang diperbolehkan\n");
     }
   }
 
   // fungsi yang hanya memperbolehkan huruf sebagai inputan
   public static function huruf($masukan) {
-    if (is_string($masukan)) {
+    if (preg_match('/^[A-Za-z]{1,}/', $masukan)) {
       return $masukan;
     } else {
-      throw new Exception("Hanya huruf yang diperbolehkan");
+      die("Hanya huruf yang diperbolehkan\n");
     }
   }
 
