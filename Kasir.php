@@ -171,6 +171,7 @@ Class Kasir implements __Main {
 
   // method untuk melakukan transaksi / penjualan barang
   private function penjualanBarang() {
+    $this->barang->ambilData();
     echo "============= Penjualan =============\n";
     echo "Kode Barang: ";
     $kode_barang = trim(fgets(STDIN));
